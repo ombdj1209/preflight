@@ -14,6 +14,21 @@ All data is synthetic, seeded and reproducible. Nothing here uses or claims know
 - **Feedback:** hindsight grading shows early-release suggestions were right 29% of the time and cancel suggestions 95%, which is the signal needed to decide what to automate and what to rework.
 - **Footprint:** under 1,000 lines of Python and SQL including tests, four runtime dependencies (NumPy, pandas, DuckDB, scikit-learn), 11 tests, full benchmark in 230 s on one CPU core.
 
+## Tech stack
+
+| Layer | Technology | Used for |
+|---|---|---|
+| Language | Python 3.11+ | Everything; dataclasses for the simulation state and recommendation records |
+| Simulation | Python `heapq` | Event queue of the discrete-event fulfilment-centre simulation (`preflight/sim.py`) |
+| Numerics | NumPy | Seeded random streams, pre-sampled pick times, common random numbers, percentiles and intervals |
+| Data frames | pandas | Snapshot tables of live state (system, pending batches, shortages, trucks) handed to SQL |
+| SQL engine | DuckDB (in-process) | Runs the dbt-style recommendation rules in `models/*.sql` over the snapshots |
+| Machine learning | scikit-learn `GradientBoostingRegressor` | `ImpactModel`, the learned impact predictor trained on sandbox labels |
+| Reporting | Python `html`, `json` | `results/results.json` and a self-contained `results/report.html`, no templating library |
+| Testing | pytest | 11 tests: determinism, conservation, fork isolation, common random numbers, race guard, SQL models |
+| Packaging | setuptools, `pyproject.toml`, Make | Editable install with a `dev` extra; `make test`, `make demo`, `make quick` |
+| CI and supply chain | GitHub Actions, Dependabot | Tests on Python 3.11, 3.12 and 3.13; weekly dependency and action updates |
+
 ## Why this exists
 
 Picnic's engineering blog (*Our vision of building an Intelligent Control Center for Fulfilment*, July 2026) describes a control room where the system suggests actions and controllers accept or reject them, built on dbt models over ClickHouse streaming to RabbitMQ. It names the open problem plainly: a controller cannot see whether a decision was right, or what it will cause downstream. The published roadmap is a feedback loop first, then predictive models, then a discrete-event simulation that tests a decision before it happens, then reinforcement learning. It also asks how to weigh a late delivery against an incomplete one.
