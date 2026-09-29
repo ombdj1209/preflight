@@ -1,0 +1,28 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Preflight results</title>
+<style>
+:root{--ink:#1d2a24;--muted:#5b6b63;--line:#d7dfda;--bg:#fbfcfb;--accent:#2f7d57;--warn:#b5542c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);
+font:16px/1.55 "Source Sans 3","Segoe UI",system-ui,sans-serif}
+main{max-width:920px;margin:0 auto;padding:48px 24px 80px}
+h1{font-size:2.1rem;line-height:1.15;margin:0 0 8px;letter-spacing:-.01em}
+h2{font-size:1.25rem;margin:48px 0 8px}p{max-width:68ch;color:var(--muted)}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+th{font-weight:600;color:var(--muted)}td.n{text-align:right}th.n{text-align:right}
+.bar{height:10px;background:var(--accent);border-radius:2px}.bar.w{background:var(--warn)}
+.wrap{overflow-x:auto}
+</style></head><body><main>
+<h1>What happens if the controller clicks Accept?</h1>
+<p>Synthetic fulfilment centre, seeded and reproducible. Every number on this page comes from
+<code>run_demo.py</code> (runtime 230.0 s, Python 3.12.3).</p>
+<h2>Shift outcomes on held-out days</h2>
+<p>Same simulated day, four ways of handling the recommendation feed.</p><div class="wrap"><table><thead><tr><th class="">Controller</th><th class="n">Shift cost</th><th class=""></th><th class="n">Change vs rules</th><th class="n">Late orders</th><th class="n">Incomplete</th><th class="n">Blocked station-min</th></tr></thead><tbody><tr><td class="">automation_only</td><td class="n">200.0 ± 34.5</td><td class=""><div class="bar" style="width:100%"></div></td><td class="n">+42.8%</td><td class="n">4.6</td><td class="n">0.0</td><td class="n">254</td></tr><tr><td class="">accept_all</td><td class="n">138.7 ± 18.5</td><td class=""><div class="bar" style="width:69%"></div></td><td class="n">+0.0%</td><td class="n">0.0</td><td class="n">5.0</td><td class="n">273</td></tr><tr><td class="">sandbox</td><td class="n">127.8 ± 22.5</td><td class=""><div class="bar" style="width:64%"></div></td><td class="n">-8.8%</td><td class="n">0.0</td><td class="n">4.6</td><td class="n">243</td></tr><tr><td class="">predictor</td><td class="n">127.7 ± 22.5</td><td class=""><div class="bar" style="width:64%"></div></td><td class="n">-8.9%</td><td class="n">0.0</td><td class="n">4.6</td><td class="n">242</td></tr></tbody></table></div>
+<h2>How much simulation is enough?</h2>
+<p>Paired counterfactual runs per decision (K noise seeds, common random numbers) against a K=64
+reference and against the true future.</p><div class="wrap"><table><thead><tr><th class="">Method</th><th class="n">Agrees with K=64</th><th class="n">Agrees with true outcome</th><th class="n">p50 ms</th><th class="n">p95 ms</th></tr></thead><tbody><tr><td class="">sandbox K=1</td><td class="n">94%</td><td class="n">92%</td><td class="n">5.36</td><td class="n">6.53</td></tr><tr><td class="">sandbox K=2</td><td class="n">98%</td><td class="n">96%</td><td class="n">10.77</td><td class="n">12.91</td></tr><tr><td class="">sandbox K=4</td><td class="n">99%</td><td class="n">97%</td><td class="n">21.07</td><td class="n">25.58</td></tr><tr><td class="">sandbox K=8</td><td class="n">99%</td><td class="n">95%</td><td class="n">42.36</td><td class="n">51.43</td></tr><tr><td class="">sandbox K=16</td><td class="n">99%</td><td class="n">95%</td><td class="n">84.11</td><td class="n">103.89</td></tr><tr><td class="">sandbox K=32</td><td class="n">99%</td><td class="n">95%</td><td class="n">166.89</td><td class="n">216.72</td></tr><tr><td class="">learned predictor</td><td class="n">86%</td><td class="n">82%</td><td class="n">0.27</td><td class="n">0.27</td></tr><tr><td class="">rules only (always accept)</td><td class="n">46%</td><td class="n">42%</td><td class="n">0.00</td><td class="n">0.00</td></tr></tbody></table></div>
+<h2>Were the rule-based recommendations right?</h2>
+<p>Hindsight grading of 100 held-out decisions: accepting was right 42%
+of the time; total regret 32.0 cost units.</p><div class="wrap"><table><thead><tr><th class="">Recommendation type</th><th class="n">Decisions</th><th class="n">Accepting was right</th><th class="n">Regret</th></tr></thead><tbody><tr><td class="">release_batch</td><td class="n">80</td><td class="n">29%</td><td class="n">7.0</td></tr><tr><td class="">cancel_item</td><td class="n">20</td><td class="n">95%</td><td class="n">25.0</td></tr></tbody></table></div>
+<h2>Late versus incomplete</h2><p>Across 20 cancel-or-wait decisions, cancelling beats waiting whenever one incomplete order costs less than a median of 40.1 cost units (interquartile 37.0 to 41.2). The current weight is 25.</p>
+</main></body></html>

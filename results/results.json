@@ -1,0 +1,727 @@
+{
+  "environment": {
+    "python": "3.12.3",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "runtime_s": 230.0,
+    "quick": false
+  },
+  "weights": {
+    "late_order": 10.0,
+    "late_minute": 0.5,
+    "incomplete": 25.0,
+    "blocked_minute": 0.05
+  },
+  "training_decisions": 424,
+  "fidelity": [
+    {
+      "method": "sandbox K=1",
+      "agree_with_reference": 0.94,
+      "agree_with_truth": 0.92,
+      "ms_p50": 5.364433499948973,
+      "ms_p95": 6.526814399830982
+    },
+    {
+      "method": "sandbox K=2",
+      "agree_with_reference": 0.98,
+      "agree_with_truth": 0.96,
+      "ms_p50": 10.766302999968502,
+      "ms_p95": 12.911528800009364
+    },
+    {
+      "method": "sandbox K=4",
+      "agree_with_reference": 0.99,
+      "agree_with_truth": 0.97,
+      "ms_p50": 21.065318500063768,
+      "ms_p95": 25.5806317999145
+    },
+    {
+      "method": "sandbox K=8",
+      "agree_with_reference": 0.99,
+      "agree_with_truth": 0.95,
+      "ms_p50": 42.35515599998507,
+      "ms_p95": 51.429507699981514
+    },
+    {
+      "method": "sandbox K=16",
+      "agree_with_reference": 0.99,
+      "agree_with_truth": 0.95,
+      "ms_p50": 84.10972900003344,
+      "ms_p95": 103.89280039989897
+    },
+    {
+      "method": "sandbox K=32",
+      "agree_with_reference": 0.99,
+      "agree_with_truth": 0.95,
+      "ms_p50": 166.89426249990902,
+      "ms_p95": 216.72416120010212
+    },
+    {
+      "method": "learned predictor",
+      "agree_with_reference": 0.86,
+      "agree_with_truth": 0.82,
+      "ms_p50": 0.26642249999895284,
+      "ms_p95": 0.26642249999895284,
+      "mae_vs_reference": 0.1501532709951923
+    },
+    {
+      "method": "rules only (always accept)",
+      "agree_with_reference": 0.46,
+      "agree_with_truth": 0.42,
+      "ms_p50": 0.0,
+      "ms_p95": 0.0
+    }
+  ],
+  "grader": {
+    "decisions": 100,
+    "accept_was_right": 0.42,
+    "total_regret": 32.01547907775547,
+    "by_type": {
+      "release_batch": {
+        "n": 80,
+        "accept_was_right": 0.2875,
+        "regret": 7.015479077755475
+      },
+      "cancel_item": {
+        "n": 20,
+        "accept_was_right": 0.95,
+        "regret": 25.0
+      }
+    }
+  },
+  "break_even_incomplete": {
+    "n": 20,
+    "p25": 37.03361667020681,
+    "median": 40.072139766823796,
+    "p75": 41.22301469371892,
+    "current_weight": 25.0
+  },
+  "shifts": {
+    "automation_only": {
+      "cost": {
+        "mean": 200.0383650258595,
+        "ci95": 34.546918955732046,
+        "n": 8
+      },
+      "late_orders": {
+        "mean": 4.625,
+        "ci95": 0.9025657870759339,
+        "n": 8
+      },
+      "incomplete": {
+        "mean": 0.0,
+        "ci95": 0.0,
+        "n": 8
+      },
+      "blocked_minutes": {
+        "mean": 254.00414943204362,
+        "ci95": 10.602165165599866,
+        "n": 8
+      },
+      "cost_change_vs_rules_pct": {
+        "mean": 42.788093423508535,
+        "ci95": 11.289241428240532,
+        "n": 8
+      },
+      "decide_ms_p95": 0.0
+    },
+    "accept_all": {
+      "cost": {
+        "mean": 138.67328210913973,
+        "ci95": 18.487058457978527,
+        "n": 8
+      },
+      "late_orders": {
+        "mean": 0.0,
+        "ci95": 0.0,
+        "n": 8
+      },
+      "incomplete": {
+        "mean": 5.0,
+        "ci95": 0.7408103670980853,
+        "n": 8
+      },
+      "blocked_minutes": {
+        "mean": 273.4656421827947,
+        "ci95": 7.898190889161745,
+        "n": 8
+      },
+      "cost_change_vs_rules_pct": {
+        "mean": 0.0,
+        "ci95": 0.0,
+        "n": 8
+      },
+      "decide_ms_p95": 0.0
+    },
+    "sandbox": {
+      "cost": {
+        "mean": 127.79912469117073,
+        "ci95": 22.481288805119732,
+        "n": 8
+      },
+      "late_orders": {
+        "mean": 0.0,
+        "ci95": 0.0,
+        "n": 8
+      },
+      "incomplete": {
+        "mean": 4.625,
+        "ci95": 0.9025657870759339,
+        "n": 8
+      },
+      "blocked_minutes": {
+        "mean": 243.48249382341498,
+        "ci95": 9.242056997909833,
+        "n": 8
+      },
+      "cost_change_vs_rules_pct": {
+        "mean": -8.806606858042343,
+        "ci95": 7.861221835132357,
+        "n": 8
+      },
+      "decide_ms_p95": 54.782736299898716
+    },
+    "predictor": {
+      "cost": {
+        "mean": 127.72948473388638,
+        "ci95": 22.464889954873254,
+        "n": 8
+      },
+      "late_orders": {
+        "mean": 0.0,
+        "ci95": 0.0,
+        "n": 8
+      },
+      "incomplete": {
+        "mean": 4.625,
+        "ci95": 0.9025657870759339,
+        "n": 8
+      },
+      "blocked_minutes": {
+        "mean": 242.0896946777276,
+        "ci95": 9.528939611505292,
+        "n": 8
+      },
+      "cost_change_vs_rules_pct": {
+        "mean": -8.855254715808837,
+        "ci95": 7.874973769512981,
+        "n": 8
+      },
+      "decide_ms_p95": 0.9939813999494614
+    }
+  },
+  "shift_rows": [
+    {
+      "controller": "automation_only",
+      "seed": 1,
+      "cost": 225.94502706172986,
+      "late_orders": 5,
+      "late_minutes": 323.86816650757254,
+      "incomplete": 0,
+      "blocked_minutes": 280.2188761588716,
+      "ontime": 307,
+      "decisions": 0,
+      "accepted": 0,
+      "decide_ms_p50": 0.0,
+      "decide_ms_p95": 0.0,
+      "totes_delivered": 1127,
+      "total_totes": 1127
+    },
+    {
+      "controller": "accept_all",
+      "seed": 1,
+      "cost": 164.49230920254658,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 6,
+      "blocked_minutes": 289.8461840509316,
+      "ontime": 312,
+      "decisions": 30,
+      "accepted": 30,
+      "decide_ms_p50": 0.0,
+      "decide_ms_p95": 0.0,
+      "totes_delivered": 1127,
+      "total_totes": 1127
+    },
+    {
+      "controller": "sandbox",
+      "seed": 1,
+      "cost": 138.18740312669337,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 5,
+      "blocked_minutes": 263.74806253386726,
+      "ontime": 312,
+      "decisions": 31,
+      "accepted": 12,
+      "decide_ms_p50": 44.46552700005668,
+      "decide_ms_p95": 52.55827199994201,
+      "totes_delivered": 1127,
+      "total_totes": 1127
+    },
+    {
+      "controller": "predictor",
+      "seed": 1,
+      "cost": 138.10494465135446,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 5,
+      "blocked_minutes": 262.09889302708916,
+      "ontime": 312,
+      "decisions": 34,
+      "accepted": 13,
+      "decide_ms_p50": 0.7526809999944817,
+      "decide_ms_p95": 0.9939813999494614,
+      "totes_delivered": 1127,
+      "total_totes": 1127
+    },
+    {
+      "controller": "automation_only",
+      "seed": 2,
+      "cost": 219.30049081773586,
+      "late_orders": 5,
+      "late_minutes": 312.2948206389414,
+      "incomplete": 0,
+      "blocked_minutes": 263.0616099653032,
+      "ontime": 307,
+      "decisions": 0,
+      "accepted": 0,
+      "decide_ms_p50": 0.0,
+      "decide_ms_p95": 0.0,
+      "totes_delivered": 1086,
+      "total_totes": 1086
+    },
+    {
+      "controller": "accept_all",
+      "seed": 2,
+      "cost": 139.12382778945303,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 5,
+      "blocked_minutes": 282.4765557890605,
+      "ontime": 312,
+      "decisions": 29,
+      "accepted": 29,
+      "decide_ms_p50": 0.0,
+      "decide_ms_p95": 0.0,
+      "totes_delivered": 1086,
+      "total_totes": 1086
+    },
+    {
+      "controller": "sandbox",
+      "seed": 2,
+      "cost": 137.79643940904813,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 5,
+      "blocked_minutes": 255.92878818096264,
+      "ontime": 312,
+      "decisions": 24,
+      "accepted": 9,
+      "decide_ms_p50": 44.51757549998092,
+      "decide_ms_p95": 49.90517445015712,
+      "totes_delivered": 1086,
+      "total_totes": 1086
+    },
+    {
+      "controller": "predictor",
+      "seed": 2,
+      "cost": 137.7246776532309,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 5,
+      "blocked_minutes": 254.49355306461806,
+      "ontime": 312,
+      "decisions": 35,
+      "accepted": 18,
+      "decide_ms_p50": 0.7609769997998228,
+      "decide_ms_p95": 0.8953353000833886,
+      "totes_delivered": 1086,
+      "total_totes": 1086
+    },
+    {
+      "controller": "automation_only",
+      "seed": 3,
+      "cost": 247.51913564593525,
+      "late_orders": 6,
+      "late_minutes": 351.4651466100892,
+      "incomplete": 0,
+      "blocked_minutes": 235.73124681781252,
+      "ontime": 306,
+      "decisions": 0,
+      "accepted": 0,
+      "decide_ms_p50": 0.0,
+      "decide_ms_p95": 0.0,
+      "totes_delivered": 1070,
+      "total_totes": 1070
+    },
+    {
+      "controller": "accept_all",
+      "seed": 3,
+      "cost": 163.11629419467008,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 6,
+      "blocked_minutes": 262.3258838934014,
+      "ontime": 312,
+      "decisions": 30,
+      "accepted": 30,
+      "decide_ms_p50": 0.0,
+      "decide_ms_p95": 0.0,
+      "totes_delivered": 1070,
+      "total_totes": 1070
+    },
+    {
+      "controller": "sandbox",
+      "seed": 3,
+      "cost": 161.40833286830102,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 6,
+      "blocked_minutes": 228.1666573660205,
+      "ontime": 312,
+      "decisions": 32,
+      "accepted": 14,
+      "decide_ms_p50": 44.52249599989955,
+      "decide_ms_p95": 51.23150070006659,
+      "totes_delivered": 1070,
+      "total_totes": 1070
+    },
+    {
+      "controller": "predictor",
+      "seed": 3,
+      "cost": 161.22165369385783,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 6,
+      "blocked_minutes": 224.43307387715643,
+      "ontime": 312,
+      "decisions": 33,
+      "accepted": 14,
+      "decide_ms_p50": 0.7603520000429853,
+      "decide_ms_p95": 0.8691409999755705,
+      "totes_delivered": 1070,
+      "total_totes": 1070
+    },
+    {
+      "controller": "automation_only",
+      "seed": 4,
+      "cost": 250.5546133155848,
+      "late_orders": 6,
+      "late_minutes": 357.4585854350889,
+      "incomplete": 0,
+      "blocked_minutes": 236.50641196080693,
+      "ontime": 306,
+      "decisions": 0,
+      "accepted": 0,
+      "decide_ms_p50": 0.0,
+      "decide_ms_p95": 0.0,
+      "totes_delivered": 1080,
+      "total_totes": 1080
+    },
+    {
+      "controller": "accept_all",
+      "seed": 4,
+      "cost": 162.82147862745202,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 6,
+      "blocked_minutes": 256.42957254904024,
+      "ontime": 312,
+      "decisions": 30,
+      "accepted": 30,
+      "decide_ms_p50": 0.0,
+      "decide_ms_p95": 0.0,
+      "totes_delivered": 1080,
+      "total_totes": 1080
+    },
+    {
+      "controller": "sandbox",
+      "seed": 4,
+      "cost": 161.44845673355448,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 6,
+      "blocked_minutes": 228.96913467108942,
+      "ontime": 312,
+      "decisions": 28,
+      "accepted": 13,
+      "decide_ms_p50": 45.33793699999933,
+      "decide_ms_p95": 51.62617634998696,
+      "totes_delivered": 1080,
+      "total_totes": 1080
+    },
+    {
+      "controller": "predictor",
+      "seed": 4,
+      "cost": 161.3154564088378,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 6,
+      "blocked_minutes": 226.30912817675602,
+      "ontime": 312,
+      "decisions": 29,
+      "accepted": 13,
+      "decide_ms_p50": 0.7417080000777787,
+      "decide_ms_p95": 0.8074262000263843,
+      "totes_delivered": 1080,
+      "total_totes": 1080
+    },
+    {
+      "controller": "automation_only",
+      "seed": 5,
+      "cost": 173.4529336986806,
+      "late_orders": 4,
+      "late_minutes": 242.59219431083375,
+      "incomplete": 0,
+      "blocked_minutes": 243.13673086527447,
+      "ontime": 308,
+      "decisions": 0,
+      "accepted": 0,
+      "decide_ms_p50": 0.0,
+      "decide_ms_p95": 0.0,
+      "totes_delivered": 1070,
+      "total_totes": 1070
+    },
+    {
+      "controller": "accept_all",
+      "seed": 5,
+      "cost": 113.2043671852645,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 4,
+      "blocked_minutes": 264.0873437052899,
+      "ontime": 312,
+      "decisions": 28,
+      "accepted": 28,
+      "decide_ms_p50": 0.0,
+      "decide_ms_p95": 0.0,
+      "totes_delivered": 1070,
+      "total_totes": 1070
+    },
+    {
+      "controller": "sandbox",
+      "seed": 5,
+      "cost": 111.50197370433187,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 4,
+      "blocked_minutes": 230.03947408663757,
+      "ontime": 312,
+      "decisions": 29,
+      "accepted": 11,
+      "decide_ms_p50": 46.63363700001355,
+      "decide_ms_p95": 51.400908799996614,
+      "totes_delivered": 1070,
+      "total_totes": 1070
+    },
+    {
+      "controller": "predictor",
+      "seed": 5,
+      "cost": 111.53562075816974,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 4,
+      "blocked_minutes": 230.71241516339472,
+      "ontime": 312,
+      "decisions": 27,
+      "accepted": 10,
+      "decide_ms_p50": 0.755037000089942,
+      "decide_ms_p95": 0.7976900000585374,
+      "totes_delivered": 1070,
+      "total_totes": 1070
+    },
+    {
+      "controller": "automation_only",
+      "seed": 6,
+      "cost": 174.7470587915992,
+      "late_orders": 4,
+      "late_minutes": 243.27229578741046,
+      "incomplete": 0,
+      "blocked_minutes": 262.2182179578789,
+      "ontime": 308,
+      "decisions": 0,
+      "accepted": 0,
+      "decide_ms_p50": 0.0,
+      "decide_ms_p95": 0.0,
+      "totes_delivered": 1114,
+      "total_totes": 1114
+    },
+    {
+      "controller": "accept_all",
+      "seed": 6,
+      "cost": 138.82009231770041,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 5,
+      "blocked_minutes": 276.40184635400834,
+      "ontime": 312,
+      "decisions": 29,
+      "accepted": 29,
+      "decide_ms_p50": 0.0,
+      "decide_ms_p95": 0.0,
+      "totes_delivered": 1114,
+      "total_totes": 1114
+    },
+    {
+      "controller": "sandbox",
+      "seed": 6,
+      "cost": 112.46180394174141,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 4,
+      "blocked_minutes": 249.2360788348283,
+      "ontime": 312,
+      "decisions": 27,
+      "accepted": 6,
+      "decide_ms_p50": 41.791389000081836,
+      "decide_ms_p95": 54.782736299898716,
+      "totes_delivered": 1114,
+      "total_totes": 1114
+    },
+    {
+      "controller": "predictor",
+      "seed": 6,
+      "cost": 112.39085641603636,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 4,
+      "blocked_minutes": 247.81712832072705,
+      "ontime": 312,
+      "decisions": 29,
+      "accepted": 10,
+      "decide_ms_p50": 0.7594270000481629,
+      "decide_ms_p95": 0.8372649999273563,
+      "totes_delivered": 1114,
+      "total_totes": 1114
+    },
+    {
+      "controller": "automation_only",
+      "seed": 7,
+      "cost": 99.4573864182742,
+      "late_orders": 2,
+      "late_minutes": 133.79672312994256,
+      "incomplete": 0,
+      "blocked_minutes": 251.1804970660582,
+      "ontime": 310,
+      "decisions": 0,
+      "accepted": 0,
+      "decide_ms_p50": 0.0,
+      "decide_ms_p95": 0.0,
+      "totes_delivered": 1094,
+      "total_totes": 1094
+    },
+    {
+      "controller": "accept_all",
+      "seed": 7,
+      "cost": 88.8146975245984,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 3,
+      "blocked_minutes": 276.29395049196796,
+      "ontime": 312,
+      "decisions": 27,
+      "accepted": 27,
+      "decide_ms_p50": 0.0,
+      "decide_ms_p95": 0.0,
+      "totes_delivered": 1094,
+      "total_totes": 1094
+    },
+    {
+      "controller": "sandbox",
+      "seed": 7,
+      "cost": 62.188590066585,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 2,
+      "blocked_minutes": 243.77180133169995,
+      "ontime": 312,
+      "decisions": 25,
+      "accepted": 4,
+      "decide_ms_p50": 46.73524300005738,
+      "decide_ms_p95": 51.54966799996146,
+      "totes_delivered": 1094,
+      "total_totes": 1094
+    },
+    {
+      "controller": "predictor",
+      "seed": 7,
+      "cost": 62.09776140885752,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 2,
+      "blocked_minutes": 241.95522817715036,
+      "ontime": 312,
+      "decisions": 34,
+      "accepted": 11,
+      "decide_ms_p50": 0.7934719999411755,
+      "decide_ms_p95": 0.8853246999478869,
+      "totes_delivered": 1094,
+      "total_totes": 1094
+    },
+    {
+      "controller": "automation_only",
+      "seed": 8,
+      "cost": 209.33027445733615,
+      "late_orders": 5,
+      "late_minutes": 292.66258844823795,
+      "incomplete": 0,
+      "blocked_minutes": 259.9796046643432,
+      "ontime": 307,
+      "decisions": 0,
+      "accepted": 0,
+      "decide_ms_p50": 0.0,
+      "decide_ms_p95": 0.0,
+      "totes_delivered": 1110,
+      "total_totes": 1110
+    },
+    {
+      "controller": "accept_all",
+      "seed": 8,
+      "cost": 138.99319003143285,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 5,
+      "blocked_minutes": 279.8638006286572,
+      "ontime": 312,
+      "decisions": 29,
+      "accepted": 29,
+      "decide_ms_p50": 0.0,
+      "decide_ms_p95": 0.0,
+      "totes_delivered": 1110,
+      "total_totes": 1110
+    },
+    {
+      "controller": "sandbox",
+      "seed": 8,
+      "cost": 137.3999976791107,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 5,
+      "blocked_minutes": 247.9999535822141,
+      "ontime": 312,
+      "decisions": 26,
+      "accepted": 9,
+      "decide_ms_p50": 46.56999249993987,
+      "decide_ms_p95": 50.14283800011299,
+      "totes_delivered": 1110,
+      "total_totes": 1110
+    },
+    {
+      "controller": "predictor",
+      "seed": 8,
+      "cost": 137.44490688074646,
+      "late_orders": 0,
+      "late_minutes": 0.0,
+      "incomplete": 5,
+      "blocked_minutes": 248.8981376149292,
+      "ontime": 312,
+      "decisions": 27,
+      "accepted": 12,
+      "decide_ms_p50": 0.7546819999788568,
+      "decide_ms_p95": 0.8224654000059672,
+      "totes_delivered": 1110,
+      "total_totes": 1110
+    }
+  ]
+}
